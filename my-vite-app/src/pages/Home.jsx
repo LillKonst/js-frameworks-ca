@@ -1,9 +1,9 @@
-import React from "react";
-import Layout from "../components/Layout";
+import MainImg from "../components/MainImg";
+import ProductList from "../components/ProductList";
 
 export default function Home() {
-    return <>
-    <h1>Home</h1>
-    <Layout />
-    </>
+    return <div className="flex flex-col w-full">
+    <MainImg className="order-1"/>
+    <ProductList className="order-2"/>
+    </div>
 }

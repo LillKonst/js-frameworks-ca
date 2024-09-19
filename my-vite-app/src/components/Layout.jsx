@@ -1,11 +1,10 @@
-import Header from "./header/Header";
+import Header from "./Header";
 import Footer from "./Footer";
-import React from "react";
 import { Outlet } from "react-router-dom";
 
 export default function Layout() {
     return (
-    <div>
+    <div className="w-full">
         <Header />
         <Outlet />
         <Footer />

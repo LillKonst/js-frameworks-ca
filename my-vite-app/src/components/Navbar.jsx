@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom"; 
+
+import { Link } from "react-router-dom"; 
 
 export function Home() {
     return <div>Home</div>
@@ -17,12 +17,12 @@ export function RouteNotFound() {
 
 export default function Navbar() {
     return (
-    <nav className="nav">
-        <ul className="d-flex">
-            <li className="nav-link">
+    <nav className="">
+        <ul className="flex">
+            <li className="px-2">
                 <Link to="/Home">Home</Link>
             </li>
-            <li className="nav-link">
+            <li className="px-2">
                 <Link to="/Contact">Contact</Link>
             </li>
         </ul>
