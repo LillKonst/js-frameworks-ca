@@ -46,15 +46,15 @@ if (isError) {
 
 return (
     <div className="flex flex-col justify-center items-center mx-2">
-     <h1>SHOP NOW</h1>
-     <div className="grid grid-cols-12 gap-1">
+     <h1 className="text-4xl">SHOP NOW</h1>
+     <div className="grid grid-cols-12 gap-1 w-full mx-2">
         {products.map((product) => (
-            <div key={product.id} className="container p-3 col-span-3 "> 
-                <div className="aspect-w-3 aspect-h-4 md:aspect-w-4 md:aspect-h-3">
+            <div key={product.id} className="p-3 col-span-3 "> 
+                <div className="w-full aspect-w-3 aspect-h-4">
                         <img 
                             src={product.image.url} 
                             alt={product.image.alt || "Product image"} 
-                            className="object-cover w-full h-full" git
+                            className="object-cover w-full h-full rounded"
                         />
                     </div>
                 <h2>{product.title}</h2>
