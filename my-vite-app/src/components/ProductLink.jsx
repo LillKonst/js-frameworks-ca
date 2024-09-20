@@ -1,63 +1,52 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import url from "../api/api";
 
-export default function ProductLink() {
+export default function ProductLink({ productId }) {
+    const [product, setProduct] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+
+    useEffect(() => {
+        async function fetchProduct() {
+            try {
+                const response = await fetch(`${APIUrl}/products/${productId}`);
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                const data = await response.json();
+                setProduct(data);
+                setIsLoading(false);
+            } catch (error) {
+                console.error("Error fetching product:", error);
+                setIsError(true);
+                setIsLoading(false);
+            }
+        }
+
+        fetchProduct();
+    }, [productId]);
+
+    if (isLoading) return <div>Loading product...</div>;
+    if (isError) return <div>Error loading product.</div>;
+    if (!product) return null; // Return null if product data isn't loaded
+
     return (
-        <div>
-            <Link to="/product/id">
-            
-
+        <div className="p-3 col-span-3"> 
+            <Link to={`/product/${product.id}`} className="block p-3 transition duration-300 ease-in-out hover:bg-gray-200 cursor-pointer">
+                <div className="w-full aspect-w-3 aspect-h-4">
+                    <img 
+                        src={product.image.url} 
+                        alt={product.image.alt || "Product image"} 
+                        className="object-cover w-full h-full rounded"
+                    />
+                </div>
+                <h2>{product.title}</h2>
+                <div className="flex">
+                    <p>{product.price}</p>
+                    <p className="px-3">{product.discountedPrice}</p>
+                </div>
             </Link>
         </div>
-    )
-}
-
-import React, {useState, useEffect } from "react";
-
-const url = "https://v2.api.noroff.dev/online-shop";
-
-export default function ProductList() {
-const [products, setProducts ] = useState([]);
-const [isLoading, setIsLoading] = useState(false);
-const [isError, setIsError] = useState(false);
-
-useEffect(() => {
-    async function getData() {
-        try { 
-            setIsError(false);
-            setIsLoading(true);
-            const response = await fetch(url);
-            const json = await response.json();
-            console.log("Full API Response:", json);
-            setProducts(json.data);
-            setIsLoading(false);
-        } catch (error) {
-            setIsLoading(false);
-            setIsError(true);
-        }
-    }
-
-    getData();
-}, []);
-
-if (isLoading) {
-    return <div>Loading products</div>;
-}
-
-if (isError) {
-    return <div>Error Loading data</div>;
-}
-
-return (
-    <div>
-        {products.map((product) => (
-            <div key={product.id} className="container p-3 "> 
-                <img src={product.image.url} alt={product.image.alt || "Product image"}/>
-                <h2>{product.title}</h2>
-                <p>{product.price}</p>
-                <p>{product.discountedPrice}</p>
-                <p>{product.rating}</p>
-            </div>
-        ))}
-    </div>
-);
+    );
 }
