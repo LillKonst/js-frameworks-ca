@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { APIUrl } from "../api/api";
 
 export default function Searchbar() {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
+    const navigate = useNavigate();
 
     const fetchData = () => {
         fetch(`${APIUrl}`)
@@ -28,6 +30,11 @@ export default function Searchbar() {
         product.title.toLowerCase().includes(query.toLowerCase())
     );
 
+    const handleProductClick = (productId) => {
+        setQuery("");
+        navigate(`/product/${productId}`); 
+    };
+
     return (
         <div className="relative">
             <form onSubmit={handleSearch} className="flex items-center px-3">
@@ -51,7 +58,7 @@ export default function Searchbar() {
                 <h2>Results</h2>
                     <ul>
                         {filteredResults.map((product, index) => (
-                            <li key={index} className="flex items-center p-2 hover:bg-gray-100 cursor-pointer border-b">
+                            <li key={index} onClick={() => handleProductClick(product.id)} className="flex items-center p-2 hover:bg-gray-200 cursor-pointer border-b">
                                 <img 
                                     src={product.image.url} 
                                     alt={product.image.alt || "Product Image"} 
