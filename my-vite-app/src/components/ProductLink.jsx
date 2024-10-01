@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import url from "../api/api";
+import APIUrl from "../api/api";
 
 export default function ProductLink({ productId }) {
     const [product, setProduct] = useState(null);

@@ -1,39 +1,17 @@
-import {useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import APIUrl from "../api/api"
+import useApi from "../api/api";
 
 export default function ProductList() {
-const [products, setProducts ] = useState([]);
-const [isLoading, setIsLoading] = useState(false);
-const [isError, setIsError] = useState(false);
+    const { data: products, isLoading, isError } = useApi("https://v2.api.noroff.dev/online-shop");
 
-useEffect(() => {
-    async function getData() {
-        try { 
-            setIsError(false);
-            setIsLoading(true);
-            const response = await fetch(APIUrl);
-            const json = await response.json();
-            console.log("Full API Response:", json);
-            setProducts(json.data);
-            setIsLoading(false);
-        } catch (error) {
-            console.error("Error fetching products:", error);
-            setIsLoading(false);
-            setIsError(true);
-        }
+    if (isLoading) {
+      return <div>Loading products...</div>;
     }
-
-    getData();
-}, []);
-
-if (isLoading) {
-    return <div>Loading products</div>;
-}
-
-if (isError) {
-    return <div>Error Loading data</div>;
-}
+  
+    if (isError) {
+      return <div>Error loading products...</div>;
+    }
 
 return (
     <div className="flex flex-col justify-center items-center mx-2">
