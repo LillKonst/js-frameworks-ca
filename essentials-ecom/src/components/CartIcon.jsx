@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
-function CartIcon({ cartCount }) {
+function CartIcon() {
     const navigate = useNavigate(); // Get the navigate function
-    
+    const { getCartCount } = useCart();
+    const cartCount = getCartCount();
 
     // Handler for click event
     const handleClick = () => {
@@ -19,7 +21,7 @@ function CartIcon({ cartCount }) {
             </svg>
 
             {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="absolute top-5 pb-1 right-0 -translate-x-1/2 -translate-y-1/2 text-xs w-5 h-5 flex items-center justify-center text-red-500">
                     {cartCount}
                 </span>
             )}
