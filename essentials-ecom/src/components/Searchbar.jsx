@@ -49,7 +49,7 @@ export default function Searchbar(props) {
     );
 };
 
-Searchbar.propTypes = {
-    onSearch: PropTypes.func.isRequired,
-};
+// Searchbar.propTypes = {
+//     onSearch: PropTypes.func.isRequired,
+// };
 

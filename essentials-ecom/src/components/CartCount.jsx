@@ -10,8 +10,6 @@ const initialState = { count: 0};
           return { count: state.count - 1 };
         case "reset":
           return { count: 0 };
-        case "addAmount":
-          return { cont: state.count + action.payload };
         default:
           throw new Error();
       }
@@ -21,13 +19,11 @@ export default function CartCount() {
   const [state, dispatch] = useReducer(reducer, initialState);
   
   return (
-    <div className=" w-36 h-50 p-2 m-5"><div>Count: {state.count}</div>
-    <button className="button bg-customBlue mt-5 w-full" onClick={() => dispatch({ type: 'decrement' })}>-</button>
-    <button className="button bg-customBlue mt-5 w-full" onClick={() => dispatch({ type: 'increment' })}>+</button>
-    <button className="button bg-customBlue mt-5 w-full" onClick={() => dispatch({ type: 'addAmount', payload: 10 })}>
-      Add 10
-    </button>
-    <button className="button bg-customBlue mt-5 w-full" onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+    <div className=" w-36 h-50 p-2 m-5 flex items-center border-black">
+    <button className="button bg-white border-black w-full" onClick={() => dispatch({ type: 'decrement' })}>-</button>
+    <div className="bg-white border-black w-16 p-2">{state.count}</div>
+    <button className="button bg-white border-black w-full" onClick={() => dispatch({ type: 'increment' })}>+</button>
+    <button className="button bg-customBlue ms-5 w-full" onClick={() => dispatch({ type: 'reset' })}>Remove</button>
   </div>
 );
 }

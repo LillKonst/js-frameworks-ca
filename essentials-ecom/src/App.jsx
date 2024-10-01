@@ -6,10 +6,13 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <div className="w-full">
+       <CartProvider>
         <Routes> 
           <Route path="/" element={<Layout />}>
             <Route path="Home" element={<Home />} />
@@ -17,8 +20,10 @@ function App() {
             <Route path="CartIcon" element={<Checkout />} />
             <Route path="Product/:id" element={<Product />} />
             <Route path="*" element={<RouteNotFound />} />
+            <Route path="CheckoutSuccess" element={<CheckoutSuccess />} />
           </Route>
           </Routes>
+      </CartProvider>
     </div>
   )
 }

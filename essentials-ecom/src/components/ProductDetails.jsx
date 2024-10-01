@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {APIUrl} from "../api/api";
+import { useCart } from "../context/CartContext";
 
 export default function ProductDetails() {
     const [product, setProduct] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const { id } = useParams();
-    const [cart, setCart] = useState([]);
+    const { addToCart } = useCart();
+    const [itemAddedMessage, setItemAddedMessage] = useState("");
 
     useEffect(() => {
         async function fetchProduct(APIUrl) {
@@ -31,20 +33,13 @@ export default function ProductDetails() {
     }, [id]);
 
     const handleAddToCart = () => {
-        const existingProduct = cart.find(item => item.id === product.id);
-        if (existingProduct) {
-            setCart(cart.map(item => 
-                item.id === product.id 
-                ? { ...item, quantity: item.quantity + 1 } 
-                : item
-            ));
-            console.log('Updated cart (increment quantity):', cart); // Log after updating quantity
-        } else {
-            const newCart = [...cart, { ...product, quantity: 1 }];
-            setCart(newCart);
-            console.log('Updated cart (added new product):', newCart); // Log new cart after adding product
+        if (product) {
+            addToCart(product);
+            setItemAddedMessage("Your item has been added.");
+            setTimeout(() => {
+                setItemAddedMessage("");
+            }, 3000);
         }
-        console.log('Current cart state:', cart); // Log the cart state each time after an add
     };
 
     
@@ -82,7 +77,12 @@ export default function ProductDetails() {
                             )}
                         </div>
                         <p className="text-lg my-5">{product.description}</p>
+                        <div>
                         <button className="button bg-customBlue mt-5 w-full" onClick={handleAddToCart} >ADD</button>
+                        {itemAddedMessage && ( // Conditionally render the message
+                                <p className="mt-2 text-green-500">{itemAddedMessage}</p>
+                            )}
+                        </div>
                         <div className="flex flex-col mt-4 self-start">
                             <h2 className="mt-1 me-2 text-xl">Rating: {product.rating}</h2>
                             <div className="flex items-center">
