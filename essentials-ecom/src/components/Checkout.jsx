@@ -19,29 +19,27 @@ const CheckoutTest = () => {
                 <ul>
                     {cart.map(item => (
                         <li key={item.id} className="flex justify-between border-b border-t py-2">
-                            
-                <div className="flex w-full">
-                    <div className="container w-24 h-36 mx-4">
-                        <img
-                            src={item.image.url}
-                            alt={item.image.alt || "Product image"}
-                            className="object-cover w-full h-full rounded"
-                        />
-                    </div>
-                    <div className="flex m-2 items-center">
-                        <h1 className="text-2xl font-bold m-2">{item.title}</h1>
-                        
-                        <div className="flex">
-                            {item.discountedPrice ? (
-                                <p className="text-xl px-3 text-red-500 m-2">{item.discountedPrice}</p>  
-                            ) : (
-                                <p className="text-xl font-semibold m-2">{item.price}</p>
-                            )}
-                        </div>
-                        <CartCount />
-                    </div>
-                </div>
-            
+                            <div className="flex w-full">
+                                <div className="container w-24 h-36 mx-4">
+                                    <img
+                                        src={item.image.url}
+                                        alt={item.image.alt || "Product image"}
+                                        className="object-cover w-full h-full rounded"
+                                    />
+                                </div>
+                                <div className="flex m-2 items-center">
+                                    <h1 className="text-2xl font-bold m-2">{item.title}</h1>
+                                    <div className="flex">
+                                        {item.discountedPrice ? (
+                                            <p className="text-xl px-3 text-red-500 m-2">{item.discountedPrice}</p>  
+                                        ) : (
+                                            <p className="text-xl font-semibold m-2">{item.price}</p>
+                                        )}
+                                    </div>
+                                    {/* Pass the quantity and product ID to CartCount */}
+                                    <CartCount productId={item.id} initialCount={item.quantity} />
+                                </div>
+                            </div>
                         </li>
                     ))}
                 </ul>
@@ -50,5 +48,6 @@ const CheckoutTest = () => {
         </div>
     );
 };
+
 
 export default CheckoutTest;
