@@ -15,65 +15,69 @@ const CheckoutTest = () => {
     }, 0);
 
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold">Your Cart</h1>
+        <div className="p-4 w-full">
+            <h1 className="text-2xl font-semibold">Your Cart</h1>
             {cart.length === 0 ? (
                 <p>Your cart is empty.</p>
             ) : (
-                <ul>
+                <ul className="w-full">
                       {cart.map(item => {
-                        // Calculate the effective price based on discounted price
                         const effectivePrice = item.discountedPrice ? item.discountedPrice : item.price;
-                        // Calculate the total price for this item
                         const totalPrice = effectivePrice * item.quantity;
 
                         return (
-                            <li key={item.id} className="flex justify-between border-b border-t py-2">
+                            <li key={item.id} className="flex justify-between border-b border-t py-2 w-full">
                                 <div className="flex w-full">
-                                    <div className="container w-24 h-36 mx-4">
+                                    <div className="container w-36 h-36 mx-4">
                                         <img
                                             src={item.image.url}
                                             alt={item.image.alt || "Product image"}
                                             className="object-cover w-full h-full rounded"
                                         />
                                     </div>
-                                    <div className="flex m-2 items-center">
-                                        <h1 className="text-2xl font-bold m-2">{item.title}</h1>
+                                    <div className="flex m-2 justify-between items-center w-full">
+                                        <div className="flex flex-col justify-center items-center md:flex-row">
+                                         <div className="flex items-center justify-between">      
+                                        <h1 className="text-xl w-auto md:text-2xl m-2">{item.title}</h1>
+                
                                         <div className="flex">
                                             {item.discountedPrice ? (
-                                                <p className="text-xl px-3 text-red-500 m-2">{item.discountedPrice}</p>  
+                                                <p className="md:text-xl px-3 text-red-500 m-2">{item.discountedPrice}</p>  
                                             ) : (
-                                                <p className="text-xl font-semibold m-2">{item.price}</p>
+                                                <p className="md:text-xl font-semibold m-2">{item.price}</p>
                                             )}
                                         </div>
+                                        </div>
+                                        <div className="flex items-center justify-between">
                                         <div className="flex items-center m-2">
                                             <button
                                                 onClick={() => incrementQuantity(item.id)}
-                                                className="border-black bg-white rounded px-2"
+                                                className="border-black bg-white rounded p-2 "
                                             >
                                                 +
                                             </button>
-                                            <span className="mx-2 text-lg">{item.quantity}</span>
+                                            <span className="mx-2 md:text-lg font-semibold">{item.quantity}</span>
                                             <button
                                                 onClick={() => decrementQuantity(item.id)}
-                                                className="border-black bg-white rounded px-2"
+                                                className="border-black bg-white rounded p-2"
                                                 disabled={item.quantity <= 1}
                                             >
                                                 -
                                             </button>
                                         </div>
-                                        {/* Display the total price for this item */}
-                                        <div className="ml-4 text-xl font-semibold">
-                                            Total: ${totalPrice.toFixed(2)} {/* Format total to 2 decimal places */}
+                                
+                                        <div className="md:text-xl font-semibold">
+                                            Total: {totalPrice.toFixed(2)}
                                         </div>
-                                    </div>
-                                </div>
+                                        </div>
+                                        </div>
+                                    </div></div>
                             </li>
                         );
                     })}
                 </ul>
             )}
-            <div className="flex mx-2 items-center">
+            <div className="flex mx-2 items-center justify-end">
             <div className="mt-4 text-xl font-bold">
                 Subtotal: ${subtotal.toFixed(2)} {/* Format subtotal to 2 decimal places */}
             </div>

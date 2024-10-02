@@ -60,7 +60,7 @@ export default function ProductDetails() {
     return (
         <div className="p-4">
             <div className="max-w-5xl mx-auto">
-                <div className="flex justify-start mx-5">
+                <div className="flex flex-col md:flex-row justify-start mx-5">
                     <div className="flex-1 container aspect-w-2 aspect-h-1 h-80 mx-4">
                         <img
                             src={product.image.url}
@@ -68,8 +68,8 @@ export default function ProductDetails() {
                             className="object-cover w-full h-full rounded"
                         />
                     </div>
-                    <div className="flex flex-1 flex-col m-2 col">
-                        <h1 className="text-2xl font-bold">{product.title}</h1>
+                    <div className="flex flex-1 flex-col my-2 col mx-5 md:mx-2">
+                        <h1 className="text-2xl font-semibold">{product.title}</h1>
                         <div className="flex">
                             <p className="text-xl font-semibold">{product.price}</p>
                             {product.discountedPrice && (
@@ -78,15 +78,15 @@ export default function ProductDetails() {
                         </div>
                         <p className="text-lg my-5">{product.description}</p>
                         <div>
-                        <button className="button bg-customBlue mt-5 w-full" onClick={handleAddToCart} >ADD</button>
-                        {itemAddedMessage && ( // Conditionally render the message
+                        <button className="button border-none font-semibold bg-customBlue mt-5 w-full" onClick={handleAddToCart} >ADD</button>
+                        {itemAddedMessage && ( 
                                 <p className="mt-2 text-green-500">{itemAddedMessage}</p>
                             )}
                         </div>
                         <div className="flex flex-col mt-4 self-start">
-                            <h2 className="mt-1 me-2 text-xl">Rating: {product.rating}</h2>
+                            <h2 className="mt-1 me-2 text-md font-semibold">Rating: {product.rating}</h2>
                             <div className="flex items-center">
-                                <h2 className="mt-1 me-2 text-xl">Tags: </h2>
+                                <h2 className="mt-1 me-2 text-md font-semibold">Tags: </h2>
                                 <div className="flex space-x-2 mt-2">
                                     {product.tags.map((tag, index) => (
                                         <span key={index} className="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-sm">
@@ -103,9 +103,9 @@ export default function ProductDetails() {
                     {product.reviews && product.reviews.length > 0 ? (
                         product.reviews.map(review => (
                             <div key={review.id} className="my-5 py-2">
-                                <p className="font-semibold">{review.username}</p>
+                                <p className="font-semibold text-xl">{review.username}</p>
                                 <p>{review.description}</p>
-                                <p>Rating: {review.rating}</p>
+                                <p className="font-semibold">Rating: {review.rating}</p>
                             </div>
                         ))
                     ) : (
