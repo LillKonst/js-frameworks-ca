@@ -84,7 +84,7 @@ const CheckoutTest = () => {
             <div className="mt-4 text-xl font-bold">
                 Subtotal: ${subtotal.toFixed(2)} {/* Format subtotal to 2 decimal places */}
             </div>
-            <button className="button bg-customBlue m-5" onClick={handleClick}>CHECKOUT</button>
+            <button className="button bg-customBlue m-5 font-semibold" onClick={handleClick}>CHECKOUT</button>
         </div></div>
     );
 };

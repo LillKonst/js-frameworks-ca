@@ -39,7 +39,7 @@ export default function Navbar({ className }) {
                     bg-customBlue md:bg-transparent md:w-auto 
                     md:flex md:items-center md:justify-between`}>
             <li className="px-2">
-                <Link to="/Home" onClick={() => setIsMenuOpen(false)} className="text-xl">HOME</Link>
+                <Link to="" onClick={() => setIsMenuOpen(false)} className="text-xl">HOME</Link>
             </li>
             <li className="px-2">
                 <Link to="/Contact" onClick={() => setIsMenuOpen(false)} className="text-xl">CONTACT</Link>
