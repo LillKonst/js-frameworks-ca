@@ -2,11 +2,11 @@
 import Layout from "./components/Layout";
 import { RouteNotFound } from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Product from "./pages/Product";
-import Checkout from "./pages/Checkout";
-import CheckoutSuccess from "./pages/CheckoutSuccess";
+import Home from "./routes/Home";
+import Contact from "./routes/Contact";
+import Product from "./routes/Product";
+import Checkout from "./routes/Checkout";
+import CheckoutSuccess from "./routes/CheckoutSuccess";
 import { CartProvider } from "./context/CartContext";
 
 function App() {

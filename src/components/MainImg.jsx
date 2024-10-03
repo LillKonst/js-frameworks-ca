@@ -1,5 +1,5 @@
-import mainImg from "/images/main-img-copy.png";
-import mainImgSm from "/images/main-img-copy-sm.png";
+import mainImg from "/main-img-copy.png";
+import mainImgSm from "/main-img-copy-sm.png";
 
 export default function MainImg() {
     return <div className="mb-6 relative">

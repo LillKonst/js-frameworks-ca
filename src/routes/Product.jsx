@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
-import ProductDetails from "../components/ProductDetails";
+import ProductDetails from "../components/cards/ProductDetails/ProductDetails";
 
 export default function Product() {
     const { id } = useParams();
-    // Fetch product details using the id
 
     return (
         <div>
