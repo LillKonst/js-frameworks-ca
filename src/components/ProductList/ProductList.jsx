@@ -24,9 +24,7 @@ return (
         <h1 className=" text-xl sm:text-2xl md:text-4xl">SHOP NOW</h1>
         <div className="grid grid-cols-12 gap-1 w-full mx-2">
         {products.slice(0, visibleProducts).map((product) => (
-            <div key={product.id} className="p-3 col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 "> 
-                <ProductLink product={product} /> 
-            </div>
+            <ProductLink key={product.id} product={product} /> 
         ))}
         </div>
         <LoadMoreBtn 
