@@ -1,32 +1,12 @@
-import { useCart } from "../context/CartContext";
-import { useNavigate } from "react-router-dom";
+import { useCart } from "../../../context/CartContext";
 
-const CheckoutTest = () => {
-    const { cart, incrementQuantity, decrementQuantity, removeProduct } = useCart();
-    const navigate = useNavigate();
-
-    const handleClick = () => {
-        navigate("/CheckoutSuccess");
-    };
-
-    const subtotal = cart.reduce((total, item) => {
-        const effectivePrice = item.discountedPrice ? item.discountedPrice : item.price;
-        return total + effectivePrice * item.quantity;
-    }, 0);
+export default function ProductCart({ item }) {
+    const { incrementQuantity, decrementQuantity, removeProduct } = useCart();
+    const effectivePrice = item.discountedPrice ? item.discountedPrice : item.price;
+    const totalPrice = effectivePrice * item.quantity;
 
     return (
-        <div className="p-4 w-full">
-            <h1 className="text-2xl font-semibold">Your Cart</h1>
-            {cart.length === 0 ? (
-                <p>Your cart is empty.</p>
-            ) : (
-                <ul className="w-full">
-                      {cart.map(item => {
-                        const effectivePrice = item.discountedPrice ? item.discountedPrice : item.price;
-                        const totalPrice = effectivePrice * item.quantity;
-
-                        return (
-                            <li key={item.id} className="flex justify-between border-b border-t py-2 w-full">
+        <li className="flex justify-between border-b border-t py-2 w-full">
                                 <div className="flex w-full">
                                     <div className="container w-36 h-36 mx-4">
                                         <img
@@ -65,7 +45,7 @@ const CheckoutTest = () => {
                                                 -
                                             </button>
                                         </div>
-                                        <button className="button bg-customBlue m-5" onClick={() => removeProduct(item.id)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                        <button className="button bg-customBlue m-5" onClick={() => removeProduct(item.id)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3" viewBox="0 0 16 16">
                                                 <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
                                                 </svg>
                                         </button>
@@ -76,19 +56,5 @@ const CheckoutTest = () => {
                                         </div>
                                     </div></div>
                             </li>
-                        );
-                    })}
-                </ul>
-            )}
-            <div className="flex mx-2 items-center justify-end">
-            <div className="mt-4 text-xl font-bold">
-                Subtotal: ${subtotal.toFixed(2)} {/* Format subtotal to 2 decimal places */}
-            </div>
-            <button className="button bg-customBlue m-5 font-semibold" onClick={handleClick}>CHECKOUT</button>
-        </div></div>
     );
-};
-
-
-
-export default CheckoutTest;
+}

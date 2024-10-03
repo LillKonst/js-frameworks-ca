@@ -1,6 +1,6 @@
 
-import Layout from "./components/Layout";
-import { RouteNotFound } from "./components/Navbar";
+import Layout from "./components/Layout/Layout";
+import { RouteNotFound } from "./components/Layout/Header/NavBar/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Contact from "./routes/Contact";

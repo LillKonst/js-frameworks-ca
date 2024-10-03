@@ -1,5 +1,5 @@
-import MainImg from "../components/MainImg";
-import ProductList from "../components/ProductList";
+import MainImg from "../components/MainImg/MainImg";
+import ProductList from "../components/ProductList/ProductList";
 
 export default function Home() {
     return <div className="flex flex-col w-full">

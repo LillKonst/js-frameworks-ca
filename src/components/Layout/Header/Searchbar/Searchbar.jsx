@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { APIUrl } from "../api/api";
+import { APIUrl } from "../../../../api/api";
 import PropTypes from "prop-types";
 
 export default function Searchbar({ className }) {

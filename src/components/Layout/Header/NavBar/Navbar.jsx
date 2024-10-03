@@ -37,7 +37,7 @@ export default function Navbar({ className }) {
                     absolute md:relative top-[70px] right-0 p-5 rounded md:top-[0px]
                     md:left-auto md:right-auto 
                     bg-customBlue md:bg-transparent md:w-auto 
-                    md:flex md:items-center md:justify-between`}>
+                     md:items-center md:justify-between`}>
             <li className="px-2">
                 <Link to="" onClick={() => setIsMenuOpen(false)} className="text-xl">HOME</Link>
             </li>

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../../../../context/CartContext";
 import PropTypes from "prop-types";
 
 function CartIcon({ className }) {

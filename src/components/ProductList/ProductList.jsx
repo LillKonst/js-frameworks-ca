@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import useApi from "../api/api";
-import ProductLink from "./cards/ProductLink/ProductLink";
+import useApi from "../../api/api";
+import ProductLink from "../cards/ProductLink/ProductLink";
+import LoadMoreBtn from "../buttons/LoadMoreBtn/LoadMoreBtn";
 
 export default function ProductList() {
     const { data: products, isLoading, isError } = useApi("https://v2.api.noroff.dev/online-shop");
-
     const [visibleProducts, setVisibleProducts] = useState(12);
 
     if (isLoading) {
@@ -26,7 +25,7 @@ return (
         <div className="grid grid-cols-12 gap-1 w-full mx-2">
         {products.slice(0, visibleProducts).map((product) => (
             <div key={product.id} className="p-3 col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 "> 
-                <ProductLink />
+                <ProductLink product={product} /> 
             </div>
         ))}
         </div>

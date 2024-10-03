@@ -1,8 +1,8 @@
 
-import logo from "../images/logo.svg";
-import Navbar from "./Navbar";
-import CartIcon from "./CartIcon";
-import Searchbar from "./Searchbar";
+import logo from "../../../images/logo.svg";
+import Navbar from "../Header/NavBar/Navbar";
+import CartIcon from "../Header/CartIcon/CartIcon";
+import Searchbar from "../Header/Searchbar/Searchbar";
 
 
 function Header() {

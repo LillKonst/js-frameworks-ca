@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import useApi from "../../../api/api";
 
-export default function ProductLink({ productId }) {
+export default function ProductLink({ product }) {
     const { data: products, isLoading, isError } = useApi("https://v2.api.noroff.dev/online-shop");
+
 
     if (isLoading) {
       return <div>Loading products...</div>;
