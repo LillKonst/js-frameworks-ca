@@ -10,7 +10,7 @@ export default function Cart({subtotal}) {
     // }, 0);
 
     return (
-        <div className="p-4l">
+        <div className="md:p-2">
             <h1 className="text-2xl font-semibold">Your Cart</h1>
             <div>
             {cart.length > 0 ? (

@@ -8,7 +8,7 @@ export default function ProductCart({ item }) {
     return (
         <li className="flex justify-between border-b border-t py-2">
                                 <div className="flex w-full relative">
-                                    <div className="container w-36 h-36 mx-4">
+                                    <div className="container w-36 h-36 md:mx-4">
                                         <img
                                             src={item.image.url}
                                             alt={item.image.alt || "Product image"}
