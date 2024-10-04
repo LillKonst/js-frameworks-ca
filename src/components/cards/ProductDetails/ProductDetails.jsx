@@ -6,14 +6,14 @@ export default function ProductDetails({ product }) {
         <div className="p-4">
             <div className="max-w-5xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-start mx-5">
-                    <div className="flex-1 container aspect-w-2 aspect-h-1 h-80 mx-4">
+                    <div className="flex-1 container md:mx-5 aspect-w-2 aspect-h-1 h-80">
                         <img
                             src={product.image.url}
                             alt={product.image.alt || "Product image"}
                             className="object-cover w-full h-full rounded"
                         />
                     </div>
-                    <div className="flex flex-1 flex-col my-2 col mx-5 md:mx-2">
+                    <div className="flex flex-1 flex-col my-2 col md:mx-2">
                         <h1 className="text-2xl font-semibold">{product.title}</h1>
                         <div className="flex">
                         {product.discountedPrice ? (
