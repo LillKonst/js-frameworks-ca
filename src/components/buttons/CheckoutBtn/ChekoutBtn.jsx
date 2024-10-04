@@ -8,6 +8,6 @@ export default function CheckoutBtn() {
     };
 
     return (
-        <button className="button bg-customBlue m-5 font-semibold" onClick={handleClick}>CHECKOUT</button>
+        <button className="button bg-customBlue my-5 font-semibold" onClick={handleClick}>CHECKOUT</button>
     );
 }
