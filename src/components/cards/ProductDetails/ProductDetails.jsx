@@ -6,7 +6,7 @@ export default function ProductDetails({ product }) {
         <div className=" p-1 md:p-4">
             <div className="max-w-5xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-center mx-5">
-                    <div className="flex-1 container md:mx-5 aspect-w-2 aspect-h-1 h-80">
+                    <div className="flex-1 container md:mx-5 aspect-w-2 aspect-h-1 h-fit md:h-80">
                         <img
                             src={product.image.url}
                             alt={product.image.alt || "Product image"}

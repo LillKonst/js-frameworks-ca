@@ -7,9 +7,9 @@ export default function MainImg() {
     <img src={mainImgSm} alt="flamingo with pink and blue background" className="block md:hidden w-full h-auto object-cover "/>
     <div className="absolute bottom-1 left-1  p-1 sm:p-5 z-10">
         <div className="flex flex-col justify-start">
-        <p className="text-base sm:text-2xl md:text-3xl">Shop your</p>
-        <p className="text-2xl sm:text-4xl md:text-5xl">ESSENTIALS</p>
-        <p className="text-base sm:text-2xl md:text-3xl">from anywhere</p>
+        <p className="text-2xl sm:text-3xl">Shop your</p>
+        <p className="text-4xl sm:text-5xl">ESSENTIALS</p>
+        <p className="text-2xl sm:text-3xl">from anywhere</p>
     </div>
     </div>
     </div>

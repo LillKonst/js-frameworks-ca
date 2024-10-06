@@ -14,7 +14,7 @@ export default function Checkout() {
        <div className="h-16"></div>
        <div className="grid grid-cols-1 lg:grid-cols-2 lg:space-x-16 m-3 md:mx-10 my-3">
        <Cart subtotal={subtotal}/>
-       <OrderDetails subtotal={subtotal}/>
+       {cart.length > 0 && <OrderDetails subtotal={subtotal} />}
        </div>
        </>
     )

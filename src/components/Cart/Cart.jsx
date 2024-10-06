@@ -1,4 +1,5 @@
 import { useCart } from "../../context/CartContext";
+import KeepShoppingBtn from "../buttons/KeepShoppingBtn/KeepShoppingBtn";
 import ProductCart from "../cards/ProductCart/ProductCart";
 
 export default function Cart({subtotal}) {
@@ -22,10 +23,9 @@ export default function Cart({subtotal}) {
                 )}
             </div>
 
-            {/* <div className="mt-4 text-xl font-bold">
-                Subtotal: ${subtotal.toFixed(2)} 
-            </div> */}
-           
+            <div className="">
+            {cart.length === 0 && (<KeepShoppingBtn />)}
+            </div>
         </div>
     );
 
