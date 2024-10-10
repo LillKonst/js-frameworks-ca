@@ -12,6 +12,6 @@ export default function CheckoutBtn() {
     };
 
     return (
-        <button className="button bg-customBlue my-5 font-semibold" onClick={handleClick}>CHECKOUT</button>
+        <button className="bg-customBlue focus:outline-none hover:bg-blueHover px-4 py-2 rounded border-none" onClick={handleClick}>CHECKOUT</button>
     );
 }

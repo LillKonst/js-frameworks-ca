@@ -19,7 +19,7 @@ export default function Product() {
     
     return (
         <div>
-            <div className="h-20"></div>
+            <div className="h-[110px] md:h-[70px]"></div>
            <ProductDetails product={product} />
            <ReviewList product={product} />
         </div>
