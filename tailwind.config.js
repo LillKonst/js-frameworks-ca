@@ -13,6 +13,7 @@ export default {
       },
       colors: {
         customBlue: "#A3D8F8",
+        blueHover: "#79C6F6",
       },
     },
   },

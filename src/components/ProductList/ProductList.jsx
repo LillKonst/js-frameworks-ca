@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useApi from "../../api/api";
+import useApi from "../../hooks/useApi";
 import ProductLink from "../cards/ProductLink/ProductLink";
 import LoadMoreBtn from "../buttons/LoadMoreBtn/LoadMoreBtn";
 
