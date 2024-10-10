@@ -8,10 +8,25 @@ export default function ContactForm() {
     
     const schema = yup
         .object({
-            fullName: yup.string().min(3).max(30).required(),
-            email: yup.string().email().required(),
-            subject: yup.string().min(3).max(20).required(),
-            message: yup.string().min(3).max(300).required(),
+            fullName: yup
+                .string()
+                .min(3, "Full Name must be at least 3 characters")
+                .max(30, "Full Name cannot be longer than 30 characters")
+                .required("Full Name is required"),
+            email: yup
+                .string()
+                .email("Please enter a valid email address")
+                .required("Email is required"),
+            subject: yup
+                .string()
+                .min(3, "Subject must be at least 3 characters")
+                .max(20, "Subject cannot be longer than 20 characters")
+                .required("Subject is required"),
+            message: yup
+                .string()
+                .min(3, "Message must be at least 3 characters")
+                .max(300, "Message cannot be longer than 300 characters")
+                .required("Message is required"),
     })
     .required();
 

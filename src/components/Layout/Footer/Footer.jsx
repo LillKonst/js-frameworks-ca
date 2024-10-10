@@ -3,6 +3,7 @@ import logo from "../../../images/logo.svg";
 export default function Footer() {
     return (
         <div className="flex flex-col p-4 w-full my-10">
+            <div className="h-20"></div>
            <div className="flex justify-between px-4 w-full flex-col lg:flex-row items-center">
                 <div className="flex flex-col lg:flex-row justify-center items-center order-2 lg:order-1">
                 <p className="text-sm px-4">© ESSENTIALS 2024</p>  
