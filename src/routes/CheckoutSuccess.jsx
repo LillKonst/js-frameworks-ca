@@ -1,5 +1,5 @@
 import KeepShoppingBtn from "../components/buttons/KeepShoppingBtn/KeepShoppingBtn";
-import CheckoutSuccessNote from "../components/CheckoutSuccessNote";
+import CheckoutSuccessNote from "../components/CheckoutSuccessNote/CheckoutSuccessNote";
 
 export default function CheckoutSuccess () {
    return (

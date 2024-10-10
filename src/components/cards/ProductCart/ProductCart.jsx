@@ -21,10 +21,10 @@ export default function ProductCart({ item }) {
                                         <h1 className="text-lg w-auto">{item.title}</h1>
                 
                                         <div className="flex">
-                                            {item.discountedPrice ? (
+                                            {item.discountedPrice < item.price ? (
                                                 <p className=" text-2xl text-red-500">{item.discountedPrice}</p>  
                                             ) : (
-                                                <p className="text-2xl font-semibold">{item.price}</p>
+                                                <p className="text-2xl">{item.discountedPrice}</p>
                                             )}
                                         </div>
                                         </div>

@@ -1,5 +1,5 @@
 import Cart from "../components/Cart/Cart"
-import OrderDetails from "../components/OrderDetails"
+import OrderDetails from "../components/OrderDetails/OrderDetails"
 import { useCart } from "../context/CartContext";
 
 export default function Checkout() {

@@ -1,7 +1,6 @@
-import { useParams } from "react-router-dom";
 import ProductDetails from "../components/cards/ProductDetails/ProductDetails";
 import ReviewList from "../components/cards/ReviewList/ReviewList";
-import useFetchProduct from "../api/useFetchProduct";
+import useFetchProduct from "../hooks/useFetchProduct";
 
 export default function Product() {
     const { product, isLoading, isError } = useFetchProduct();

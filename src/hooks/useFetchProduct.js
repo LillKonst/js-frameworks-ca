@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {APIUrl} from "./api";
+import {APIUrl} from "./useApi";
 
 export default function useFetchProduct() {
     const [product, setProduct] = useState(null);

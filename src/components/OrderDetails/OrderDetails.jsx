@@ -1,4 +1,4 @@
-import CheckoutBtn from "./buttons/CheckoutBtn/ChekoutBtn";
+import CheckoutBtn from "../buttons/CheckoutBtn/ChekoutBtn";
 
 export default function OrderDetails({ subtotal }) { 
     const deliveryFee = 70;
