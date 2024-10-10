@@ -8,6 +8,6 @@ export default function KeepShoppingBtn() {
     };
 
     return (
-        <button className="bg-transparent border-none hover:underline" onClick={handleClick}>Keep Shopping</button>
+        <button className="bg-transparent border-none focus:outline-none hover:underline" onClick={handleClick}>Keep Shopping</button>
     );
 }

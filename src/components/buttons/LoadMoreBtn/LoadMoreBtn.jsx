@@ -4,7 +4,7 @@ export default function LoadMoreBtn({ loadMore, isVisible }) {
     return (
         <button 
             onClick={loadMore} 
-            className="mt-4 bg-customBlue py-2 px-4 rounded border-none"
+            className="bg-customBlue focus:outline-none hover:bg-blueHover px-4 py-2 rounded border-none"
         >
             More Products
         </button>

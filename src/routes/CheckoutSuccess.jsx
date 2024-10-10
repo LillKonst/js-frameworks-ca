@@ -4,7 +4,7 @@ import CheckoutSuccessNote from "../components/CheckoutSuccessNote/CheckoutSucce
 export default function CheckoutSuccess () {
    return (
     <div className="flex flex-col items-center">
-      <div className="h-16"></div>
+      <div className="h-[110px] md:h-[70px]"></div>
         <CheckoutSuccessNote />
         <KeepShoppingBtn />
     </div>

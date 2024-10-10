@@ -17,7 +17,7 @@ export default function AddToCartBtn({ product }) {
 
     return(
         <div>
-            <button className="button border-none font-semibold bg-customBlue mt-5 w-full" onClick={handleAddToCart} >ADD</button>
+            <button className="bg-customBlue focus:outline-none hover:bg-blueHover px-4 py-2 rounded border-none mt-5 w-full" onClick={handleAddToCart} >ADD</button>
             {itemAddedMessage && ( 
                 <p className="mt-2 text-green-500">{itemAddedMessage}</p>
             )}
