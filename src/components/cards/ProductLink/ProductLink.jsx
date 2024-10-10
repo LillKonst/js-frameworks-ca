@@ -5,8 +5,12 @@ export default function ProductLink({ product }) {
     ? Math.round(((product.price - product.discountedPrice) / product.price) * 100) 
     : null;
 
+    const handleScrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
+
     return (
-        <Link to={`/product/${product.id}`} className="relative block transition duration-300 ease-in-out group m-2 col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3">
+        <Link to={`/product/${product.id}`} onClick={handleScrollToTop} className="relative block transition duration-300 ease-in-out group m-2 col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3">
             <div className="w-full aspect-w-3 aspect-h-4">
                 <img 
                     src={product.image.url} 
