@@ -23,7 +23,7 @@ Currently, two official plugins are available:
 ## Getting started
 To get a closer look at this website you can 
 1. Clone my github repo: https://github.com/LillKonst/js-frameworks-ca/
-2. Open website with the Netlify app using this link: https://essentials-ecom.netlify.app/
+2. Open website with the Netlify app using this link: https://holidaze-exam-lillkonst.netlify.app/
 
 ## Contact 
 If you are interessted in more details or want to get in contact with me, you are welcome to sending me an email at konstlillkristine@gmail.com
